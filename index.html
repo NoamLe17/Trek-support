@@ -1,126 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trek – Official Support</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trek – האפליקציה שתיקח אתכם לכל מקום</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap');
+
+    :root {
+      --primary-color: #3A8DFF;
+      --secondary-color: #55B4B0;
+      --dark-text: #2c3e50;
+      --light-text: #ecf0f1;
+      --background-light: #f9fbff;
+      --background-dark: #2980b9;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      margin: 0;
-      background: #f9fbff;
-      color: #333;
-      line-height: 1.6;
+      font-family: 'Heebo', sans-serif;
+      direction: rtl;
+      text-align: right;
+      background: var(--background-light);
+      color: var(--dark-text);
+      line-height: 1.8;
+      overflow-x: hidden;
     }
-    header {
-      background: #3A8DFF;
-      color: white;
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: var(--light-text);
+      padding: 6rem 1rem;
       text-align: center;
-      padding: 3rem 1rem;
     }
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
-    header p {
+
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-weight: 300;
+    }
+
+    .cta-button {
+      background: #fff;
+      color: var(--primary-color);
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
       font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-    main {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h2 {
-      color: #3A8DFF;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    .contact a {
+      font-weight: 700;
+      transition: transform 0.3s, box-shadow 0.3s;
       display: inline-block;
-      background: #3A8DFF;
-      color: white;
-      padding: 0.7rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      margin: 0.5rem;
-      transition: background 0.3s;
     }
-    .contact a:hover {
-      background: #2a6ecc;
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
-    .socials {
+
+    /* Sections */
+    .section {
+      padding: 4rem 1rem;
+      max-width: 1100px;
+      margin: auto;
       text-align: center;
-      margin-top: 1rem;
     }
-    .socials a {
-      margin: 0 10px;
+
+    .section-dark {
+      background: var(--background-dark);
+      color: var(--light-text);
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+    }
+
+    .section-dark h2 {
+      color: var(--light-text);
+    }
+
+    .section-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      flex: 1 1 300px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card p {
+      font-size: 1.1rem;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    /* About Section */
+    .about-text {
       font-size: 1.2rem;
-      color: #3A8DFF;
-      text-decoration: none;
-      font-weight: bold;
+      max-width: 800px;
+      margin: auto;
     }
-    .faq p {
-      margin: 0.5rem 0;
-    }
-    footer {
-      background: #f0f4ff;
-      text-align: center;
+
+    /* Testimonials Section */
+    .testimonial {
+      font-style: italic;
+      margin-top: 1.5rem;
       padding: 1.5rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .testimonial p {
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial .author {
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    /* FAQ Section */
+    .faq-item {
+      text-align: right;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1rem;
+    }
+
+    .faq-item h3 {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      cursor: pointer;
+      position: relative;
+      padding-right: 2rem;
+    }
+
+    .faq-item h3::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .faq-item h3.open::before {
+      transform: rotate(45deg);
+    }
+    
+    .faq-item p {
+      display: none;
+      font-size: 1.1rem;
+      padding-top: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: #2c3e50;
+      color: var(--light-text);
+      text-align: center;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
-      color: #555;
+    }
+    
+    .footer a {
+      color: var(--light-text);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+      .section h2 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Trek</h1>
-    <p>Connecting People with Events – Travel, Parties, and Adventures</p>
-  </header>
 
-  <main>
-    <!-- About -->
-    <section class="about">
-      <h2>About Trek</h2>
-      <p><strong>Trek</strong> is the ultimate travel & events app that connects people with experiences. Whether it’s a mountain hike, a city trip, a music festival, or a casual meetup – Trek helps you discover events and meet new friends around you.</p>
-      <p>Our mission is simple: <em>connect people with events</em>. No more missing out on great trips or feeling alone – with Trek you always have something exciting to join and someone to share it with.</p>
-    </section>
+  <section class="hero">
+    <h1>Trek: האפליקציה שתיקח אתכם לכל מקום</h1>
+    <p>צאו לטרקים, פסטיבלים, מסיבות וטיולים. צרו חוויות בלתי נשכחות והכירו חברים חדשים עם האפליקציה שפותחת לכם את העולם.</p>
+    <a href="#download" class="cta-button">הורידו את האפליקציה בחינם</a>
+  </section>
 
-    <!-- Contact -->
-    <section class="contact">
-      <h2>Contact Us</h2>
-      <p>Have questions, feedback, or issues? We’d love to hear from you!</p>
-      <a href="mailto:trekappil@gmail.com">📩 Email Us</a>
-      <div class="socials">
-        <a href="https://instagram.com/trekapp" target="_blank">Instagram</a>
-        <a href="https://facebook.com/trekapp" target="_blank">Facebook</a>
-        <a href="https://tiktok.com/@trekapp" target="_blank">TikTok</a>
+  <section class="section">
+    <h2>מה זה Trek?</h2>
+    <p class="about-text">
+      <strong>Trek</strong> היא הפלטפורמה המושלמת לחיבורים אמיתיים. במקום להישאר בבית, האפליקציה שלנו מאפשרת לכם לגלות אירועים, טיולים ומסיבות שמתרחשים ממש עכשיו, בסביבה שלכם. בין אם זה טרק בהרים, טיול אורבני או פסטיבל מוזיקה – Trek דואגת שלא תפספסו אף הזדמנות ליצור זיכרונות חדשים ולחלוק אותם עם אנשים.
+    </p>
+  </section>
+
+  <section class="section section-dark">
+    <h2>תכונות עיקריות</h2>
+    <div class="section-content">
+      <div class="feature-card">
+        <h3>גלו אירועים חדשים</h3>
+        <p>מערכת המפות האינטראקטיבית שלנו מאפשרת לכם לראות בזמן אמת אירועים שקורים בסביבתכם. מעדכונים על פסטיבלים ועד מפגשים קטנים – תמיד תמצאו משהו מעניין לעשות.</p>
       </div>
-    </section>
+      <div class="feature-card">
+        <h3>הכירו חברים חדשים</h3>
+        <p>בכל אירוע שאתם מצטרפים אליו, תוכלו לראות את הפרופילים של המשתתפים האחרים, להתחבר אליהם ולשוחח כדי לתכנן את הטרק המושלם ביחד.</p>
+      </div>
+      <div class="feature-card">
+        <h3>תכננו את ההרפתקה הבאה</h3>
+        <p>צרו אירועים משלכם, הזמינו חברים ואנשים חדשים, ונהלו את כל הפרטים במקום אחד. כל מה שצריך כדי לצאת להרפתקה הבאה נמצא במרחק לחיצה.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- FAQ -->
-    <section class="faq">
-      <h2>FAQ</h2>
-      <p><strong>What is Trek?</strong><br/> Trek is a social app that connects people with trips, events, parties, and attractions around them.</p>
+  <section id="faq" class="section">
+    <h2>שאלות נפוצות</h2>
+    <div class="faq-item">
+      <h3>מה עושה Trek?</h3>
+      <p>Trek היא אפליקציה חברתית שמחברת בין אנשים לבין אירועים, טיולים, מסיבות וכל סוג של אטרקציה בסביבתם.</p>
+    </div>
+    <div class="faq-item">
+      <h3>האם האפליקציה עולה כסף?</h3>
+      <p>לא, האפליקציה חינמית לחלוטין. בעתיד ייתכן שנוסיף תכונות פרימיום, אך הפיצ'רים הבסיסיים תמיד יישארו בחינם.</p>
+    </div>
+    <div class="faq-item">
+      <h3>איך מדווחים על בעיה?</h3>
+      <p>לכל שאלה או בעיה, ניתן לפנות אלינו במייל: <a href="mailto:trekappil@gmail.com" style="color: var(--primary-color);">trekappil@gmail.com</a>. נשמח לעזור!</p>
+    </div>
+  </section>
 
-      <p><strong>Do I need an account?</strong><br/> Yes. Creating a profile allows you to join events, chat with others, and get personalized suggestions.</p>
+  <section id="download" class="section section-dark">
+    <h2>מוכנים לצאת לדרך?</h2>
+    <p style="font-size: 1.5rem; max-width: 800px; margin: auto;">הורידו את האפליקציה עוד היום ותתחילו לגלות את העולם דרך העיניים של אנשים כמוכם.</p>
+    <br>
+    <a href="#" class="cta-button">הורידו עכשיו</a>
+  </section>
 
-      <p><strong>Is Trek free?</strong><br/> Yes, Trek is free to download and use. Some premium features may be added in the future.</p>
-
-      <p><strong>How do I report an issue?</strong><br/> Please email us at <a href="mailto:trekappil@gmail.com">trekappil@gmail.com</a> with details.</p>
-    </section>
-  </main>
-
-  <footer>
-    © 2025 Noam&Nov · All rights reserved.
+  <footer class="footer">
+    <div class="socials">
+      <a href="https://instagram.com/trekapp" target="_blank">אינסטגרם</a> |
+      <a href="https://facebook.com/trekapp" target="_blank">פייסבוק</a> |
+      <a href="https://tiktok.com/@trekapp" target="_blank">טיקטוק</a>
+    </div>
+    <br>
+    <p>
+      © 2025 Trek · נבנה על ידי נועם חמו · כל הזכויות שמורות.
+    </p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqItems = document.querySelectorAll('.faq-item h3');
+      faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const content = item.nextElementSibling;
+          item.classList.toggle('open');
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
